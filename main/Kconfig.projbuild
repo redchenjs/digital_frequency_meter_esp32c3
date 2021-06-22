@@ -1,0 +1,33 @@
+menu "Digital Frequency Meter"
+
+menu "FPGA Configuration"
+config FPGA_REF_CLK_FREQ
+    int "FPGA Reference Clock Frequency"
+    default 200000000
+
+config FPGA_RST_PIN
+    int "FPGA RST Pin"
+    default 19
+
+config FPGA_DC_PIN
+    int "FPGA DC Pin"
+    default 18
+
+config SPI_SCLK_PIN
+    int "SPI SCLK Pin"
+    default 4
+
+config SPI_MOSI_PIN
+    int "SPI MOSI Pin"
+    default 5
+
+config SPI_MISO_PIN
+    int "SPI MISO Pin"
+    default 7
+
+config SPI_CS_PIN
+    int "SPI CS Pin"
+    default 6
+endmenu
+
+endmenu
