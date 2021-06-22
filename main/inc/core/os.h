@@ -8,20 +8,6 @@
 #ifndef INC_CORE_OS_H_
 #define INC_CORE_OS_H_
 
-#include "freertos/FreeRTOS.h"
-#include "freertos/event_groups.h"
-
-typedef enum user_event_group_bits {
-    OS_PWR_DUMMY_BIT = 0x00,
-    OS_PWR_RESET_BIT = BIT0,
-    OS_PWR_SLEEP_BIT = BIT1
-} user_event_group_bits_t;
-
-extern EventGroupHandle_t user_event_group;
-
-extern void os_pwr_reset_wait(EventBits_t bits);
-extern void os_pwr_sleep_wait(EventBits_t bits);
-
 extern void os_init(void);
 
 #endif /* INC_CORE_OS_H_ */
