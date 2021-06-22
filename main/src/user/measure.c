@@ -28,15 +28,15 @@ static void measure_task(void *pvParameter)
     while (1) {
         uint32_t data_recv[2] = {0};
 
-        fpga_read_gate(data_recv);
+        fpga_read_conf(data_recv);
 
-        ESP_LOGI(TAG, "shift: %u, total: %u", data_recv[0], data_recv[1]);
+        ESP_LOGW(TAG, "gate_shift: %u, gate_total: %u", data_recv[0], data_recv[1]);
 
         fpga_read_data(data_recv);
 
         double sig_freq = (double)data_recv[0] / data_recv[1] * CONFIG_FPGA_REF_CLK_FREQ;
 
-        ESP_LOGI(TAG, "sig: %u, ref: %u, freq: %lf Hz", data_recv[0], data_recv[1], sig_freq);
+        ESP_LOGI(TAG, "sig_clk_cnt: %u, ref_clk_cnt: %u, sig_freq: %lf Hz", data_recv[0], data_recv[1], sig_freq);
 
         vTaskDelay(100 / portTICK_RATE_MS);
     }

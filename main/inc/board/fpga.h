@@ -13,7 +13,7 @@
 #include "chip/spi.h"
 
 typedef enum {
-    GATE_RD = 0x3a,
+    CONF_RD = 0x3a,
     DATA_RD = 0x3b
 } fpga_cmd_t;
 
@@ -22,7 +22,7 @@ extern void fpga_init_board(void);
 extern void fpga_setpin_dc(spi_transaction_t *);
 extern void fpga_setpin_reset(uint8_t val);
 
-extern void fpga_read_gate(uint32_t *buff);
+extern void fpga_read_conf(uint32_t *buff);
 extern void fpga_read_data(uint32_t *buff);
 
 #endif /* INC_BOARD_FPGA_H_ */

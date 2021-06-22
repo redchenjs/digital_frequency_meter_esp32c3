@@ -40,11 +40,11 @@ void fpga_setpin_reset(uint8_t val)
     gpio_set_level(CONFIG_FPGA_RST_PIN, val);
 }
 
-void fpga_read_gate(uint32_t *buff)
+void fpga_read_conf(uint32_t *buff)
 {
     spi_trans[0].length = 8;
     spi_trans[0].rxlength = 0;
-    spi_trans[0].tx_data[0] = GATE_RD;
+    spi_trans[0].tx_data[0] = CONF_RD;
     spi_trans[0].rx_buffer = NULL;
     spi_trans[0].user = (void *)0;
     spi_trans[0].flags = SPI_TRANS_USE_TXDATA;
